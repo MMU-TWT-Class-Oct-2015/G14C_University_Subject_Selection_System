@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 02, 2016 at 06:06 PM
+-- Generation Time: Feb 02, 2016 at 07:50 PM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -45,20 +45,43 @@ INSERT INTO `student` (`ID`, `Name`, `Year`, `Password`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `student_subject`
+--
+
+CREATE TABLE `student_subject` (
+  `StudentID` varchar(10) NOT NULL,
+  `SubjectID` varchar(7) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `student_subject`
+--
+
+INSERT INTO `student_subject` (`StudentID`, `SubjectID`) VALUES
+('1234567890', 'TCP1121'),
+('1234567890', 'TMA1211'),
+('2345678901', 'THI2211'),
+('2345678901', 'TTV2161'),
+('2345678901', 'TCS2251'),
+('3456789012', 'TAC3121');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `subject`
 --
 
 CREATE TABLE `subject` (
-  `ID` varchar(10) NOT NULL,
+  `ID` varchar(7) NOT NULL,
   `Name` varchar(50) NOT NULL,
-  `Year offered` int(1) NOT NULL
+  `YearOffered` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `subject`
 --
 
-INSERT INTO `subject` (`ID`, `Name`, `Year offered`) VALUES
+INSERT INTO `subject` (`ID`, `Name`, `YearOffered`) VALUES
 ('COO4135', 'Cookies', 3),
 ('TAC3121', 'Applied Cryptography', 3),
 ('TAO1221', 'Computer Architecture & Organisation', 1),
@@ -98,10 +121,28 @@ ALTER TABLE `student`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Indexes for table `student_subject`
+--
+ALTER TABLE `student_subject`
+  ADD KEY `StudentID` (`StudentID`),
+  ADD KEY `SubjectID` (`SubjectID`);
+
+--
 -- Indexes for table `subject`
 --
 ALTER TABLE `subject`
   ADD PRIMARY KEY (`ID`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `student_subject`
+--
+ALTER TABLE `student_subject`
+  ADD CONSTRAINT `student_subject_ibfk_1` FOREIGN KEY (`StudentID`) REFERENCES `student` (`ID`),
+  ADD CONSTRAINT `student_subject_ibfk_2` FOREIGN KEY (`SubjectID`) REFERENCES `subject` (`ID`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
