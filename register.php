@@ -23,7 +23,7 @@
       </tr>
 
       <tr>
-        <td align="right">Password</td> <!-- pattern: any characters(byte) from 6-20 -->
+        <td align="right">New Password</td> <!-- pattern: any characters(byte) from 6-20 -->
         <td><input type="password" name="passw1"  required pattern=".{6,20}" title="Password must be 6 to 20 characters long" onchange="
           if (this.checkValidity())
             form.passw2.pattern = this.value;
@@ -33,6 +33,11 @@
       <tr>
         <td align="right">Confirm Password</td>
         <td><input type="password" name="passw2" required title="Enter same password"></td>
+      </tr>
+
+      <tr>
+        <td align="right">Name</td>
+        <td><input type="text" name="username" required title="Enter your name"></td>
       </tr>
 
       <tr>
