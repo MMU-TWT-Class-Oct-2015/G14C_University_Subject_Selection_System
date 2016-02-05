@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 02, 2016 at 07:50 PM
+-- Generation Time: Feb 03, 2016 at 01:01 PM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -38,7 +38,7 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`ID`, `Name`, `Year`, `Password`) VALUES
-('1234567890', 'Beta student', 1, ''),
+('1234567890', 'Beta student', 1, 'ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413'),
 ('2345678901', 'Gamma student', 2, ''),
 ('3456789012', 'Delta Student', 3, '');
 
