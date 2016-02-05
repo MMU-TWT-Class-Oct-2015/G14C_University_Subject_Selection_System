@@ -1,0 +1,27 @@
+caching / storing git password
+
+download http://gitcredentialstore.codeplex.com/releases/view/106064 
+store the file into your git folder
+when type git pull/push, prog will prompt 1 time to call you input credentials
+
+	learning github
+git clone <website-link>
+git status 				//it check got new file bohhhh lor
+git add   <file name> 			//
+git commit -m "Added q1" 		//commit macam comment like that
+git push  				//macam upload like that, upload to main project
+
+	Example Pushing Files
+1 copy the link of the repository https
+2 cd to xampp htdocs folder (using git cmd or git bash)
+3 git clone "the url"
+4 checking new file in the clone directory (git status)
+5 git add . or filename (add all)
+6 git commit -m "COMMENT" 
+7 git push 
+
+	Example Pulling Files
+starting of project
+1 git fetch (check for changes before start)
+2 git status ( check see got changes boh)
+3 git pull  (make all files up to date)
