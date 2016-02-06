@@ -27,10 +27,8 @@
     if (!mysql_select_db("twt", $database))
       die(mysql_error() . "<br>Could not open database</body></html>");
 
-    if (!($result = mysql_query($query, $database))) {
-      print("<p>User ID not found!</p>");
+    if (!($result = mysql_query($query, $database)))
       die("</body></html>");
-    }
 
     mysql_close($database);
 
