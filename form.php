@@ -13,7 +13,7 @@
   <script>
   function successful(){
     alert("Register successful!");
-    window.location="/nima/login.php";;
+    window.location="/login.php";;
 
   }
   </script>
