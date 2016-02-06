@@ -1,20 +1,7 @@
 <?php
   function login($id, $password, $mysqli) {
 
-    // connect database + query
-    $query = "SELECT Name, Password FROM student WHERE id = " . $id . " LIMIT 1";
-
-    if (!($database = mysql_connect("localhost", "root")))
-      return false;
-
-    if (!mysql_select_db("twt", $database))
-      return false;
-
-    if (!($result = mysql_query($query, $database)))
-      return false;
-
-    mysql_close($database);
-    
+    $result = sqlCon("SELECT Name, Password FROM student WHERE id = " . $id . " LIMIT 1");
     /* user[0] = Name
        user[1] = Hashed Password */
     $user = mysql_fetch_row($result);
