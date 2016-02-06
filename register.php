@@ -13,10 +13,10 @@
 </head>
 
 <body>
-  <p>Student Registration</p>
+  <h2 >Student Registration</h2>
 
   <form method="post" action="form.php">
-    <table class="center">
+    <table class="center "  bgcolor="skyblue">
       <tr>
         <td align="right">User ID</td> <!-- pattern: exactly 10 alphanumeric -->
         <td><input type="text" name="userid" required pattern="[A-Za-z0-9]{10}" title="10 characters excluding symbols &amp spaces"></td>
@@ -41,13 +41,36 @@
       </tr>
 
       <tr>
+        <td align="right">Level</td>
+        <td>
+          <select name="year_study">
+          <option value="Beta student">Beta Year</option>
+          <option value="Gamma student">Gamma Year</option>
+          <option value="Delta student">Delta Year</option>
+        </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td align="right">Year</td>
+        <td>
+          <select name="year">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+        </td>
+      </tr>
+
+
+      <tr>
         <td height="35">&nbsp;</td>
         <td height="35"><input type='submit' name="Submit" value="Register" onclick="return verification(this)"></td>
       </tr>
     </table>
   </form>
 
-  <form action="login.html">
+  <form action="login.php">
     <input type="submit" value="Back" class="botRight">
   </form>
 </body>
