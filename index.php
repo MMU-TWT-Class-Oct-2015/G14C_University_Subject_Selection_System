@@ -12,22 +12,7 @@
 
   <body>
     <?php
-
-      // display only subject id for now haha
-      $query = "SELECT student_subject.SubjectID FROM student_subject WHERE student_subject.StudentID =  " . $_SESSION['id'];
-
-      if (!($database = mysql_connect("localhost", "root")))
-        die(mysql_error() . "<br>Could not connect to database</body></html>");
-
-      if (!mysql_select_db("twt", $database))
-        die(mysql_error() . "<br>Could not open database</body></html>");
-
-      if (!($result = mysql_query($query, $database))) {
-        print("<p>User ID not found!</p>");
-        die("</body></html>");
-      }
-
-      mysql_close($database);
+      $result = sqlCon("SELECT student_subject.SubjectID FROM student_subject WHERE student_subject.StudentID =  " . $_SESSION['id']);
       print("<p>Welcome " . $_SESSION["name"] . "</p>");
     ?>
 
