@@ -15,7 +15,7 @@
 <body>
   <h2 >Student Registration</h2>
 
-  <form method="post" action="form.php">
+  <form method="post" action="./form.php">
     <table class="center "  bgcolor="skyblue">
       <tr>
         <td align="right">User ID</td> <!-- pattern: exactly 10 alphanumeric -->
@@ -41,27 +41,15 @@
       </tr>
 
       <tr>
-        <td align="right">Level</td>
+        <td align="right">Current Level</td>
         <td>
           <select name="year_study">
-          <option value="Beta student">Beta Year</option>
-          <option value="Gamma student">Gamma Year</option>
-          <option value="Delta student">Delta Year</option>
+          <option value="1">Beta Year</option>
+          <option value="2">Gamma Year</option>
+          <option value="3">Delta Year</option>
         </select>
         </td>
       </tr>
-
-      <tr>
-        <td align="right">Year</td>
-        <td>
-          <select name="year">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-        </select>
-        </td>
-      </tr>
-
 
       <tr>
         <td height="35">&nbsp;</td>
@@ -70,7 +58,7 @@
     </table>
   </form>
 
-  <form action="login.php">
+  <form action="./login.php">
     <input type="submit" value="Back" class="botRight">
   </form>
 </body>
