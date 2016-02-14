@@ -15,7 +15,7 @@
   <body>
     <div>
       <h>Home</h>
-      <input type="button" class= "button topRight" onclick="window.location='./logout.php'" value="Log out">
+      <input type="button" class= "logout topRight" onclick="window.location='./logout.php'" value="Log out">
     </div>
 
     <?php
@@ -32,10 +32,6 @@
 
       print("<br><br><p>Welcome " . $_SESSION['name'] . "</p>");
 
-      $database = new mysqli("localhost","root","","twt");
-      if (mysqli_connect_errno())
-        printf("<p style=color:red>Connection to database failed: ", mysqli_connect_error());
-
       $sth = $database->prepare("SELECT student_subject.SubjectID, subject.Name FROM subject, student_subject WHERE
                             student_subject.StudentID = " . $_SESSION['id'] . " AND
                             student_subject.SubjectID = subject.ID;");
@@ -43,7 +39,8 @@
       $sth->bind_result($SubjectID,$SubjectName);
 
       // disable button if no subject registered
-      $disabled = "disabled";
+      $noEnroll = "";
+      $noDrop = "disabled";
 
       // unable to use num_rows before fetch
       if ($sth->fetch()) {
@@ -62,25 +59,30 @@
                  </tr>");
         }
         print"</table>";
-        $disabled = "";
+
+        $noDrop = "";
       } else
         print("You have not enrolled in any of the subjects");
-        // session subj contain total number of subject student has registered
-        // it is used to add with total number of checked subject(s) in registerform.php
-        // to ensure selected subject(s) not more than 5
-        $_SESSION['totalSubj'] = $sth->num_rows;
+      // session subj contain total number of subject student has registered
+      // it is used to add with total number of checked subject(s) in registerform.php
+      // to ensure selected subject(s) not more than 5
+      $_SESSION['totalSubj'] = $sth->num_rows;
+      $sth->close();
 
-        print("<table>
-                <tr>
-                  <form action='./add_subject.php' >
-                    <td height='35'><input type='submit' value='Add Subject'></td>
-                  </form>
+      if ($_SESSION['totalSubj'] >= 5)
+        $noEnroll = "disabled";
 
-                  <form action='./drop_subject.php'>
-                    <td height='35'><input type='submit' value='Drop Subject' $disabled></td>
-                  </form>
-                </tr>
-               </table>");
+      print("<table>
+               <tr>
+                 <form action='./add_subject.php' >
+                   <td height='35'><input type='submit' value='Add Subject' $noEnroll></td>
+                 </form>
+
+                 <form action='./drop_subject.php'>
+                   <td height='35'><input type='submit' value='Drop Subject' $noDrop></td>
+                 </form>
+               </tr>
+             </table>");
       ?>
   </body>
 </html>
