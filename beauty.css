@@ -1,6 +1,6 @@
 /* External Style Sheets */
 
-div {
+.top {
   top: 0;
 	left: 0;
   width: 100%;
@@ -9,20 +9,152 @@ div {
   background-color: #00ace6; /* sky blue */
 }
 
-div h {
+.title {
   font-family: Tahoma;
   font-size: 2em;
   color: #fff; /* white */
   padding: 5px 10px 5px 15px; /* top right bottom left */
 }
 
-table {
+.row1 {
+  border-radius: 10px 10px 0px 0px;
+	background-color:#e74c3c;  /*sun color */
+  padding-top: 32px;
+	padding-bottom: 32px;
+}
+.row1 h1 {
+	font-family: cursive;
+}
+
+.row2 {
+	background-color:#5e4534;
+	padding-top: 25px;
+	padding-bottom: 32px;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.row2 a {
+	font-size:22px;
+	text-decoration:underline;
+	color:#FFE5CC;
+	font-family: 'Anton', sans-serif;
+	font-weight:bold;
+}
+
+.row2 a:hover {
+	color:#ff9f3e;
+}
+
+.login_page{
+  background-color:#ff9f3e;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.login_page input[type="submit"] {
+	padding:10px;
+	background-color:#e74c3c;
+	width:150px;
+	border:none;
+	color:white;
+	font-weight:bold;
+	font-family: 'Open Sans', sans-serif;
+	font-size:20px;
+	margin-left: 40%;
+}
+
+.login_page input[type="submit"]:hover {
+	background-color:#ff9f3e;
+}
+
+.warning{
+  color: red;
+  background-color:#f0938a;
+}
+
+.background{
+  background-color: #cef5f9;
+}
+
+.table1, td, th{
+   border: solid 1px  #3a6070;
+   border-collapse: collapse;
+   font-family:Arial,sans-serif;
+   font-size: 11pt;
+
+ }
+
+.table1 th{
+  text-align: left;
+  border-bottom: solid 2px darkblue;
+  background-color: #416b7d;
+  color: white;
+  padding: 8px;
+
+}
+
+.table1 td{
+  padding: 4px 100px;
+  background-color: #cef5f9;
+}
+
+.table2{
   border-collapse: collapse;
+  width: auto;
+}
+.register{
+  width: 30%;
+  background: #f6ad8d;
+  margin: auto;
+  border-radius: 10px #3a6070;
+
+}
+.register h2{
+  font-size: 27px;
+  font-weight: 300;
+  color: #fff;
+  background: #0EA7E7;
+  padding: 20px 0px;
+  text-align: center;
+  border-radius: 10px 10px 0px 0px;
+  border-bottom: 3px dashed black;
+}
+
+
+.register_content{
+  width:30%;
+	text-align:left;
+  margin: auto;
+  font-family: 'Open Sans', sans-serif;
+
+
 }
 
 a {
   text-decoration: none;
 }
+
+ input[type="submit"] {
+   margin-top: 5pt;
+   margin-left: 13%;
+   margin-bottom: 30pt;
+   font-size: 11pt;
+
+  font-family: 'Open Sans', sans-serif;
+}
+
+input[type="button"] {
+ margin-top: 5pt;
+ margin-left: 13%;
+ font-size: 11pt;;
+ font-family: 'Open Sans', sans-serif;
+}
+
+.content {
+	width:30%;
+	text-align:center;
+	margin:auto;
+	margin-top:5%;
+ }
 
 .logout {
   background: rgba(155,0,0,0.3); /* opacity cant be used as child(text) is inherited as well */
