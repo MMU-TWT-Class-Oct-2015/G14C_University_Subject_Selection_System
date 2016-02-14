@@ -10,7 +10,7 @@
       header("location: ./add_subject.php?error=1");
 
     $sth->bind_Param("ss", $_SESSION['id'], $SubjectID); // bind_param is used for modify records
-
+    //2 parameter, "ss" - 1st para= string, 2nd para = string
     if (!$sth->execute())
       header("location: ./add_subject.php?error=1");
 
