@@ -26,7 +26,7 @@
 
         for (var i=0; i<checkboxes.length; i++) {
           if (checkboxes[i].checked)
-          vals += "\n"+checkboxes[i].value;
+            vals += "\n" + checkboxes[i].value;
         }
         return confirm("Adding subject(s):" + vals);
       }
