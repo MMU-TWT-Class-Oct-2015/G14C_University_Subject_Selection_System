@@ -30,9 +30,47 @@
 
 
 #2) Design Issues
-## i) login.php 
 
 #3) Implementation
+
+## i) login.php 
+- an interface allowing student to key in their student ID and password
+
+## ii) login_process.php
+- automatically runs after student submit 'form' from login.php
+- obtained id and password from student who submitted
+- establish connection to the database
+- check whether ID exist (not exist, redirect ./login.php?error=1
+- hash the password obtained the user (sha512)
+- compare the hash password 
+- if both hash password value are the same, redirect ./index.php
+- else redirect ./login.php?error=1?
+
+## iii) session.php
+ - run in most of the php files
+ - prevent student to indirect access php files by changing url directory
+ - Student without valid session ID will be redirect to ./login.php?error=2
+
+## iv) index.php
+ - a welcome page after login
+ - display all registered subjects
+ - add subject and drop subject button
+ - 
+ 
+## v) add_subject.php
+ - Display subjects list based on student YEAR
+ - Subject which have registered will not be display
+ - Confirm button will be ENABLE when (totalSubj is more than 1 and less than 6)
+ - totalSubj is calculated by (total subject registered +  number of checked box ticked)
+ - form submitted to add_process.php
+
+## vi) add_process.php
+ - receive List (SubjectID) from add_subject.php
+ - each List will be process one by one, SQL query will add the subjects into database one by one
+ - bind_Param is used to prevent SQL injection
+ - successful registering, redirect index.php?add=1
+ - 
+ 
 
 
 #4) Evaluation
