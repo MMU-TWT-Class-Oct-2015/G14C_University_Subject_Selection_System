@@ -14,8 +14,10 @@
   </head>
 
   <body>
-    <div>
-      <h>Home</h>
+    <div class="top" >
+
+          <h class= "title">Home</h>
+
       <input type="button" class= "logout topRight" onclick="window.location='./logout.php'" value="Log out">
     </div>
 
@@ -45,8 +47,8 @@
 
       // unable to use num_rows before fetch
       if ($sth->fetch()) {
-        print("<table border=1>");
-        print("<caption>Registered Subject</caption>");
+        print("<table class=table1>");
+        print("<tr><th>Subject ID</th><th>Registered Subject</th></tr>");
         print("<tr>
                <td><a href='./subject_info.php?subject=$SubjectID&path=index'>$SubjectID</a></td><td>$SubjectName</td>
                </tr>");
@@ -73,17 +75,14 @@
       if ($_SESSION['totalSubj'] >= 5)
         $noEnroll = "disabled";
 
-      print("<table>
-               <tr>
-                 <form action='./add_subject.php' >
-                   <td height='35'><input type='submit' value='Add Subject' $noEnroll></td>
+      print("   <form action='./add_subject.php 'class=button >
+                  <input type='submit' value='Add Subject' $noEnroll style='float: left'; >
                  </form>
 
-                 <form action='./drop_subject.php'>
-                   <td height='35'><input type='submit' value='Drop Subject' $noDrop></td>
+                 <form action='./drop_subject.php' class=button>
+                  <input type='submit' value='Drop Subject' $noDrop>
                  </form>
-               </tr>
-             </table>");
+            ");
       ?>
   </body>
 </html>
