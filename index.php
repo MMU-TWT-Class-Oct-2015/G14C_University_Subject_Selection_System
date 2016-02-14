@@ -14,7 +14,8 @@
 
   <body>
 
-      <input type="button" onclick="window.location='./logout.php';" value="log out">
+    <input type="button" onclick="window.location='./logout.php';" value="log out">
+
     <?php
       // display ALERT BOX when redirected from other page
       if (isset($_GET["add"])) // enrolled successfully
@@ -28,46 +29,51 @@
               </script>";
 
       print("<p>Welcome " . $_SESSION['name'] . "</p>");
-    ?>
 
-    <table border=1>
-      <?php
-        print("<caption>Registered Subject</caption>");
+      $database = new mysqli("localhost","root","","twt");
+      if (mysqli_connect_errno())
+        printf("<p style=color:red>Connection to database failed: ", mysqli_connect_error());
 
-        $database = new mysqli("localhost","root","","twt");
-        if (mysqli_connect_errno())
-          printf("<p style=color:red>Connection to database failed: ", mysqli_connect_error());
-
-        $sth = $database->prepare("SELECT student_subject.SubjectID, subject.Name FROM subject, student_subject WHERE
+      $sth = $database->prepare("SELECT student_subject.SubjectID, subject.Name FROM subject, student_subject WHERE
                             student_subject.StudentID = " . $_SESSION['id'] . " AND
                             student_subject.SubjectID = subject.ID;");
-        $sth->execute();
-        $sth->bind_result($SubjectID,$SubjectName);
+      $sth->execute();
+      $sth->bind_result($SubjectID,$SubjectName);
 
-        while ($sth->fetch()) {
-          print("<tr>
-                  <td>$SubjectID</td><td>$SubjectName</td>
-                 </tr>");
-        }
+      if ($sth->fetch()) {
+        print("<table border=1>");
+        print("<caption>Registered Subject</caption>");
+        print("<tr>
+               <td>$SubjectID</td><td>$SubjectName</td>
+               </tr>");
+      }
+      else
+        print("You did not enrolled any subject");
 
-        print"</table>";
+      while ($sth->fetch()) {
+        print("<tr>
+               <td>$SubjectID</td><td>$SubjectName</td>
+               </tr>");
+      }
 
-        // session subj contain total number of subject student has registered
-        // it is used to add with total number of checked subject(s) in registerform.php to ensure
-        // to ensure selected subject(s) not more than 5
-        $_SESSION['totalSubj'] = $sth->num_rows;
+      print"</table>";
 
-        print("<table>
-                <tr>
-                  <form action='./add_subject.php' >
-                    <td height='35'><input type='submit' value='Add Subject'></td>
-                  </form>
+      // session subj contain total number of subject student has registered
+      // it is used to add with total number of checked subject(s) in registerform.php to ensure
+      // to ensure selected subject(s) not more than 5
+      $_SESSION['totalSubj'] = $sth->num_rows;
 
-                  <form action='./drop_subject.php'>
-                    <td height='35'><input type='submit' value='Drop Subject'></td>
-                  </form>
-                </tr>
-               </table>");
+      print("<table>
+               <tr>
+                 <form action='./add_subject.php' >
+                   <td height='35'><input type='submit' value='Add Subject'></td>
+                 </form>
+
+                 <form action='./drop_subject.php'>
+                   <td height='35'><input type='submit' value='Drop Subject'></td>
+                 </form>
+               </tr>
+             </table>");
       ?>
   </body>
 </html>

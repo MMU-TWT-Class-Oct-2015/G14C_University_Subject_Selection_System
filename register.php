@@ -15,7 +15,7 @@
 <body>
   <h2 >Student Registration</h2>
 
-  <form method="post" action="./form.php">
+  <form method="post" action="./register_process.php">
     <table class="center "  bgcolor="skyblue">
       <tr>
         <td align="right">User ID</td> <!-- pattern: exactly 10 alphanumeric -->

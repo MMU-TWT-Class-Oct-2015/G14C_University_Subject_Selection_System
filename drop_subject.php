@@ -27,7 +27,7 @@
   </head>
 
   <body>
-    <h1 align =center>Subject Registration</h1>
+    <h1 align =center>Drop Subject</h1>
 
     <?php
       print("<p>Welcome " . $_SESSION['name'] . "</p>");
