@@ -43,52 +43,56 @@
 
 ## i) login.php 
 - an interface allowing student to key in their student ID and password
+- required attribute is used for form control instead of js: accepting only 10 characters for username
+- form(id, password) is submitted to login_process.php via POST method 
 
 ## ii) login_process.php
-- automatically runs after student submit 'form' from login.php
-- obtained id and password from student who submitted
 - establish connection to the database
-- check whether ID exist (not exist, redirect ./login.php?error=1
-- hash the password obtained the user (sha512)
-- compare the hash password 
-- if both hash password value are the same, redirect ./index.php
+- if entered id doesn't match any id in the database, user is redirected to ./login.php?error=1
+- password obtained by the user is hashed using sha512
+- compare the hash passwords 
+- if both hashed password values are the same, user is redirected ./index.php
 - else redirect ./login.php?error=1?
+- login.php able to detect GET parameter variable(error) and error message is displayed depending on the value (1 or 2)
 
 ## iii) index.php
  - a welcome page after login
  - display all registered subjects
- - add subject and drop subject button
- 
+ - contain "add subject" and "drop subject" button
+ - "add subject" is disabled when 5 subjects are registered
+ - "drop subject" button is disabled when no subject is registered
  
 ## iv) add_subject.php
  - Display subjects list based on student YEAR
  - Subject which have registered will not be display
  - Confirm button will be ENABLE when (totalSubj is more than 1 and less than 6)
  - totalSubj is calculated by (total subject registered +  number of checked box ticked)
- - form submitted to add_process.php
+ - confirmation box will appear, showing the subject(s) that will be enrolled
+ - form is submitted to add_process.php
 
 ## v) add_process.php
- - automatically run after addsubj button is pressed
- - receive List (SubjectID) from add_subject.php
- - each List will be process one by one, SQL query will add the subjects into database one by one
+ - receive List (arrays of SubjectID) from add_subject.php
+ - each List will be processed one by one, SQL query will add the subjects into database one by one
  - bind_Param is used to prevent SQL injection
  - successful registering, redirect index.php?add=1
+ - index.php able to detect GET parameter variables(add or drop) and alert box will be displayed depending on the variables
 
 ## vi) drop_subject/drop_proces
  - codes are almost same as add_subject & add_process
 
 ## vii) subject_info.php
+ - subject codes appear in index.php, add_subject.php and drop_subject.php are clickable and is redirected to this page
  - obtained parameter through URL (using GET)
  - provide the details of the subject selected
  - 2 parameter --> $subject (subjectID), $path (path)
- - path is use for back purposes
+ - path is used to record the file name of last page for back purposes:
  - if the Subject is clicked from index.php,  it will return to index.php when back is press
  - if the Subject is clicked from add_subject.php, it will then return to add_subject.php  
  
 ## viii) session_check.php
  - run in most of the php files
  - prevent student to indirect access php files by changing url directory
- - Student without valid session ID will be redirect to ./login.php?error=2
+ - Student without valid session ID (not logged in) will be redirect to ./login.php?error=2
  
 ## xi) database_conn.php
  - a template for database connection
@@ -96,6 +100,7 @@
  - reduce redundancy of codes 
 
 ## x) logout.php
+ - logout button is present in index, add/drop subject and subject info pages
  - unset session
  - redirect to ./login.php
 
