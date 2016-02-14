@@ -26,3 +26,15 @@ __Software__
 ##* Consider delivery platform – running on network or stand alone
 - server running on intranet
 - client access server html/php files through intranet (xampp: apache/MySQL)
+
+
+
+#2) Design Issues
+#3) Implementation
+
+
+#4) Evaluation
+- A simple and user friendly design interface has been developed
+- Student can register through the register interface provided
+- Student can then login to the subject registration system
+- Student can add and drop subject with the constrain provided from question
