@@ -19,7 +19,7 @@
         </tr>
 
         <tr>
-          <td align="right">Password</td>
+          <td align="right">Password</td>  <!-- no pattern, but cannot submit when no password provided -->
           <td><input type="password" name="passw"  required title="Please enter your password"></td>
           <?php
             if (isset($_GET['error'])) {
