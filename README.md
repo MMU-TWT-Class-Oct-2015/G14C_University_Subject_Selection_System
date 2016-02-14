@@ -92,3 +92,52 @@
 - Student can register through the register interface provided
 - Student can then login to the subject registration system
 - Student can add and drop subject with the constrain provided from question
+
+#5) "How to run the system"
+
+##CREATE DATABASE
+i) Install Xampp v5.6.15 _https://www.apachefriends.org/index.html_
+
+ii) After installation, enable Apache & MySQL
+
+iii) make sure Apache listening to port 80,443 and MYSQL on port 3306
+
+iv) Open your preferred browser, URL: _localhost/phpmyadmin_
+
+v) Create new database using the query: _CREATE DATABASE twt_
+
+vi) Import sql (twt.sql) from the repository into the Database
+
+##MOVE FILES INTO C:\xampp\htdocs\
+
+i) use git CMD
+
+ii) change directory to C:\xampp\htdocs\
+_cd C:\xampp\htdocs\_
+
+iii) clone the repository G14C_University_Subject_Selection_System
+_git clone "https://github.com/Nic-chan/G14C_University_Subject_Selection_System.git"_
+
+iv) a new folder G14C_University_Subject_Selection_System will be created
+
+##ACCESS SYSTEM
+
+i) Open up a preferred Browser
+
+ii) Change URL: _localhost/G14C_University_Subject_Selection_System/login.php_
+
+iii) A login page will be displayed to the user
+default user name : __1234567890__
+default password  : __123456__
+~User can choose Register at the bottom right to register a new account
+
+v) After logging in, it will redirect user to _index.php_
+
+vi) index.html will display all registered subject of student
+- _addsubject_ button and _dropsubject_ button is available
+
+vii) 
+_addsubject_ button will redirect user to the add_subject.php
+_dropsubject_ button will redirect user to the drop_subject.php
+
+viii) a _logout_ button is available at the top right corner of the page
