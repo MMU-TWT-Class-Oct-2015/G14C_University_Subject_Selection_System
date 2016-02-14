@@ -1,5 +1,9 @@
 /* External Style Sheets */
 
+table {
+  border-collapse: collapse;
+}
+
 .botRight {
   position: absolute;
   bottom: 10px;

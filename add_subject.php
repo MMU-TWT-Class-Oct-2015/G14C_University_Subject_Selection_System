@@ -9,6 +9,8 @@
     <meta charset = "utf-8">
     <title>Add Subject</title>
 
+    <link rel="stylesheet" type="text/css" href="./beauty.css">
+    
     <script type="text/javascript">
       // if checked box + registered subject is more than 5, button will be disabled
       function atLeastOne(val) {
