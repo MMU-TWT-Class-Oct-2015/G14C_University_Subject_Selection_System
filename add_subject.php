@@ -13,6 +13,8 @@
 
     <script type="text/javascript">
       // if checked box + registered subject is more than 5, button will be disabled
+      // function is called each time checkbox is being ticked
+      // val supplied $_SESSION[totalSubj]
       function atLeastOne(val) {
         var totalSubj = document.querySelectorAll("input[type='checkbox']:checked").length + val;
 
@@ -22,17 +24,19 @@
           document.myForm.addSubj.disabled = true;
       }
 
+      //function is called when confirm button is pressed
       function confirmation() {
         var checkboxes = document.getElementsByName('List[]');
         var vals = "";
 
         for (var i=0; i<checkboxes.length; i++) {
-          if (checkboxes[i].checked)
-            vals += "\n" + checkboxes[i].value;
+          if (checkboxes[i].checked) //checkboxes -- ticked
+            vals += "\n" + checkboxes[i].value; //stored "ticked - subject name" into vals
         }
-        return confirm("Adding subject(s):" + vals);
+        return confirm("Adding subject(s):" + vals); //display confirmation msg - "ticked - subject name"
       }
 
+      //function is called when Back button is pressed
       function goBck() {
         window.location = "./index.php";
       }
@@ -57,6 +61,7 @@
         printf("<p style=color:red>Connection to database failed: ", mysqli_connect_error());
 
       /********  SUBJECT NAME AND SUBJECT CODE according to STUDENT's YEAR *********/
+      //added subjects will not be displayed 
       $sth = $database->prepare("SELECT subject.ID,subject.Name FROM subject
                                  WHERE subject.YearOffered = (SELECT Year FROM student
                                    WHERE student.ID = " . $_SESSION['id'] . ")
@@ -78,8 +83,14 @@
           while ($sth->fetch()) { // found items stored in variable subject
             $countSub++;
             print("<tr><td colspan=2>$countSub</td>");
+            //print the "1", "2", "3"
             print("<td><a href='./subject_info.php?subject=$SubjectID&path=add_subject'>$SubjectID</a></td><td>$SubjectName</td>");
+            //SubjectID linked to subject_info providing more info
             print("<td><input type='checkbox' name='List[]' value='$SubjectID' onClick='atLeastOne($_SESSION[totalSubj])'> </td></tr>");
+            //array List to stored $subjectID value
+            //Each time checkbox is clicked, function atleastOne($_SESSION[totalSubj]) is called
+            //$_SESSION[totalSubj] --> index.php, (after displaying all the registered subject)
+            
           }
         ?>
       </table>
