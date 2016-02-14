@@ -52,6 +52,9 @@
         print("<tr>
                <td><a href='./subject_info.php?subject=$SubjectID&path=index'>$SubjectID</a></td><td>$SubjectName</td>
                </tr>");
+        //subjectID is a link to subject_info (provide more info on the subject)
+        //parameter send through link subject=$subjectID & path=index
+        //path is use for back purposes, when back is called, header will change back to index.php
 
         while ($sth->fetch()) {
           print("<tr>
@@ -63,7 +66,7 @@
       } else
         print("You have not enrolled in any of the subjects");
         // session subj contain total number of subject student has registered
-        // it is used to add with total number of checked subject(s) in registerform.php to ensure
+        // it is used to add with total number of checked subject(s) in registerform.php
         // to ensure selected subject(s) not more than 5
         $_SESSION['totalSubj'] = $sth->num_rows;
 
