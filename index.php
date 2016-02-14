@@ -13,8 +13,10 @@
   </head>
 
   <body>
-      <p1>Home</p1><br><br>
-      <input type="button" onclick="window.location='./logout.php'" value="log out" class="topRight">
+    <div>
+      <h>Home</h>
+      <input type="button" class= "button topRight" onclick="window.location='./logout.php'" value="Log out">
+    </div>
 
     <?php
       // display ALERT BOX when redirected from other page
@@ -28,7 +30,7 @@
                 alert('Subject successfully dropped! :D');
               </script>";
 
-      print("<p>Welcome " . $_SESSION['name'] . "</p>");
+      print("<br><br><p>Welcome " . $_SESSION['name'] . "</p>");
 
       $database = new mysqli("localhost","root","","twt");
       if (mysqli_connect_errno())

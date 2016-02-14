@@ -1,16 +1,37 @@
 /* External Style Sheets */
 
-p1 {
-  position: fixed;
+div {
   top: 0;
-  left: 0;
+	left: 0;
   width: 100%;
-  padding: 5px 10px 5px 15px; /* top right bottom left */
-
-  color: #fff; /* white */
+  height: 2.9em;
+	position: fixed;
   background-color: #00ace6; /* sky blue */
+}
+
+div h {
   font-family: Tahoma;
-  font-size: 2em; /* em allow resize */
+  font-size: 2em;
+  color: #fff; /* white */
+  padding: 5px 10px 5px 15px; /* top right bottom left */
+}
+
+.button {
+  background: rgba(50,50,50,0.2); /* opacity cant be used as child(text) is inherited as well */
+  border: none;
+  color: white;
+  padding: 15px 32px; /* verti hori */
+
+  font-family: Arial;
+  font-size: 16px;
+  font-weight: bold;
+
+  text-align: center;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: rgba(25,25,25,0.25);
 }
 
 table {

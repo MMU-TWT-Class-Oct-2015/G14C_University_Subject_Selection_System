@@ -40,11 +40,13 @@
   </head>
 
   <body>
-    <p1>Drop Subject</p1><br><br>
-    <input type="button" onclick="window.location='./logout.php'" value="log out" class="topRight">
+    <div>
+      <h>Drop Subject</h>
+      <input type="button" class= "button topRight" onclick="window.location='./logout.php'" value="Log out">
+    </div>
 
     <?php
-      print("<p>Welcome " . $_SESSION['name'] . "</p>");
+      print("<br><br><p>Welcome " . $_SESSION['name'] . "</p>");
       print("<p>Your student ID:  " . $_SESSION['id'] . "</p>");
 
       if (isset($_GET['error']))
