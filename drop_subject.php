@@ -12,7 +12,9 @@
     <link rel="stylesheet" type="text/css" href="./beauty.css">
 
     <script type="text/javascript">
-      // if checked box + registered subject is more than 5, button will be disabled
+      // if no subject registered, button will be disabled
+      // function might not be useful, as if there's no subject registered, 
+      // students are not allowed to access drop_subject.php
       function atLeastOne() {
         var totalSubj = document.querySelectorAll('input[type="checkbox"]:checked').length;
 
