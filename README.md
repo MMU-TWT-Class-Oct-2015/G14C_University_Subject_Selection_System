@@ -87,6 +87,10 @@
  - called on most php files 
  - reduce redundancy of codes 
 
+## x) logout.php
+ - unset session
+ - redirect to ./login.php
+
 #4) Evaluation
 - A simple and user friendly design interface has been developed
 - Student can register through the register interface provided
