@@ -110,9 +110,9 @@ vi) Import sql (twt.sql) from the repository into the Database
 
 ##MOVE FILES INTO C:\xampp\htdocs\
 
-i) use git CMD
+i) use _git CMD_
 
-ii) change directory to C:\xampp\htdocs\
+ii) change directory to _C:\xampp\htdocs\_
 _cd C:\xampp\htdocs\_
 
 iii) clone the repository G14C_University_Subject_Selection_System
@@ -127,13 +127,16 @@ i) Open up a preferred Browser
 ii) Change URL: _localhost/G14C_University_Subject_Selection_System/login.php_
 
 iii) A login page will be displayed to the user
+
 default user name : __1234567890__
+
 default password  : __123456__
+
 ~User can choose Register at the bottom right to register a new account
 
 v) After logging in, it will redirect user to _index.php_
 
-vi) index.html will display all registered subject of student
+vi) _index.html_ will display all registered subject of student
 - _addsubject_ button and _dropsubject_ button is available
 
 vii) 
