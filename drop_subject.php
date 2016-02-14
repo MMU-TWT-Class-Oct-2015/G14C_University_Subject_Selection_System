@@ -1,5 +1,6 @@
 <?php
-  include './session.php';
+  include './database_conn.php';
+  include_once './session_check.php';
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +14,7 @@
 
     <script type="text/javascript">
       // if no subject registered, button will be disabled
-      // function might not be useful, as if there's no subject registered, 
+      // function might not be useful, as if there's no subject registered,
       // students are not allowed to access drop_subject.php
       function atLeastOne() {
         var totalSubj = document.querySelectorAll('input[type="checkbox"]:checked').length;
@@ -26,13 +27,13 @@
 
       function confirmation() {
         var checkboxes = document.getElementsByName('List[]');
-        var vals = "";
+        var totalSubjects = "";
 
         for (var i=0; i<checkboxes.length; i++) {
           if (checkboxes[i].checked)
-          vals += "\n"+checkboxes[i].value;
+          totalSubjects += "\n"+checkboxes[i].value;
         }
-        return confirm("Dropping subject(s):" + vals);
+        return confirm("Dropping subject(s):" + totalSubjects);
       }
 
       function goBck() {
@@ -44,7 +45,7 @@
   <body>
     <div>
       <h>Drop Subject</h>
-      <input type="button" class= "button topRight" onclick="window.location='./logout.php'" value="Log out">
+      <input type="button" class= "logout topRight" onclick="window.location='./logout.php'" value="Log out">
     </div>
 
     <?php
@@ -53,10 +54,6 @@
 
       if (isset($_GET['error']))
         print("<p style=color:red>Error adding subject</p>");
-
-      $database = new mysqli("localhost","root","","twt");
-      if (mysqli_connect_errno())
-        printf("<p style=color:red>Connection to database failed: ", mysqli_connect_error());
 
       /********  SUBJECT NAME AND SUBJECT CODE according to STUDENT's YEAR *********/
       $sth = $database->prepare("SELECT student_subject.SubjectID, subject.Name FROM subject, student_subject WHERE
@@ -80,6 +77,8 @@
             print("<td><a href='./subject_info.php?subject=$SubjectID&path=drop_subject'>$SubjectID</a></td><td>$SubjectName</td>");
             print("<td><input type='checkbox' name='List[]' value='$SubjectID' onClick='atLeastOne()'> </td></tr>");
           }
+
+          $sth->close();
         ?>
       </table>
 
