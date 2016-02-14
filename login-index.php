@@ -14,7 +14,18 @@
 
   <body>
     <?php
-      print("<p>Welcome " . $_SESSION["name"] . "</p>");
+      // display ALERT BOX when redirected from other page
+      if (isset($_GET["add"])) // enrolled successfully
+        echo "<script language='javascript'>
+                alert('Subject successfully enrolled! :D');
+              </script>";
+
+      if (isset($_GET["drop"])) // enrolled successfully
+        echo "<script language='javascript'>
+                alert('Subject successfully dropped! :D');
+              </script>";
+
+      print("<p>Welcome " . $_SESSION['name'] . "</p>");
     ?>
 
     <table border=1>
@@ -38,6 +49,11 @@
         }
 
         print"</table>";
+
+        // session subj contain total number of subject student has registered
+        // it is used to add with total number of checked subject(s) in registerform.php to ensure
+        // to ensure selected subject(s) not more than 5
+        $_SESSION['totalSubj'] = $sth->num_rows;
 
         print("<table>
                 <tr>
