@@ -1,9 +1,6 @@
 <?php
-  include './session.php';
-
-  $database = new mysqli("localhost","root","","twt");
-  if (mysqli_connect_errno())
-    printf("<p style=color:red>Connection to database failed: ", mysqli_connect_error());
+  include './database_conn.php';
+  include_once './session_check.php';
 
   foreach($_POST['List'] as $SubjectID) {
     if (!$sth = $database->prepare("DELETE FROM student_subject WHERE StudentID=? AND SubjectID =?;")) // prepare statement
