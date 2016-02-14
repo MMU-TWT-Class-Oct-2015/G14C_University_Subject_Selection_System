@@ -5,11 +5,11 @@
 - system will automatically process the subject selected, and update the selected subject into the database
 - simple and user friendly design
 
-##* larify potential user and specific requirement
+##* Clarify potential user and specific requirement
 - potential user : Student
 - specific requirement : A computer/laptop/smart devices with intranet access to the server
 
-##* valuate the required hardware, software platform 
+##* Evaluate the required hardware, software platform 
 - Hardware : 
 	Server 
 - a normal standard computer running on Xampp
@@ -23,6 +23,6 @@
 -browser
 
 
-##* onsider delivery platform – running on network or stand alone
+##* Consider delivery platform – running on network or stand alone
 - server running on intranet
 - client access server html/php files through intranet (xampp: apache/MySQL)
