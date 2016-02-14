@@ -13,7 +13,8 @@
   </head>
 
   <body>
-    <input type="button" onclick="window.location='./logout.php'" value="log out" class="topRight">
+      <p1>Home</p1><br><br>
+      <input type="button" onclick="window.location='./logout.php'" value="log out" class="topRight">
 
     <?php
       // display ALERT BOX when redirected from other page

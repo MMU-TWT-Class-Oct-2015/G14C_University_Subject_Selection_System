@@ -10,7 +10,7 @@
     <title>Add Subject</title>
 
     <link rel="stylesheet" type="text/css" href="./beauty.css">
-    
+
     <script type="text/javascript">
       // if checked box + registered subject is more than 5, button will be disabled
       function atLeastOne(val) {
@@ -40,7 +40,8 @@
   </head>
 
   <body>
-    <h1 align =center>Subject Registration</h1>
+    <p1>Subject Enrollment</p1><br><br>
+    <input type="button" onclick="window.location='./logout.php'" value="log out" class="topRight">
 
     <?php
       print("<p>Welcome " . $_SESSION['name'] . "</p>");

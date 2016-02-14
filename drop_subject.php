@@ -40,7 +40,8 @@
   </head>
 
   <body>
-    <h1 align =center>Drop Subject</h1>
+    <p1>Drop Subject</p1><br><br>
+    <input type="button" onclick="window.location='./logout.php'" value="log out" class="topRight">
 
     <?php
       print("<p>Welcome " . $_SESSION['name'] . "</p>");
@@ -80,7 +81,7 @@
 
       <table>
         <tr>
-        <td><input type="submit" name="addSubj" value="Confirm" onclick="return confirmation();" disabled></td>
+        <td><input type="submit" name="addSubj" value="Confirm" onClick="return confirmation();" disabled></td>
           <td><input type="button" value="Back" onClick="goBck()"></td>
         </tr>
       </table>
