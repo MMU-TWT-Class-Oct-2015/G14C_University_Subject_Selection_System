@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<?php
-  include_once 'functions.php';
-?>
-
 <html>
   <head>
     <meta charset = "utf-8">
