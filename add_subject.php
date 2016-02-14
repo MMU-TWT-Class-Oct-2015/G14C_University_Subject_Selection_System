@@ -20,6 +20,17 @@
           document.myForm.addSubj.disabled = true;
       }
 
+      function confirmation() {
+        var checkboxes = document.getElementsByName('List[]');
+        var vals = "";
+
+        for (var i=0; i<checkboxes.length; i++) {
+          if (checkboxes[i].checked)
+          vals += "\n"+checkboxes[i].value;
+        }
+        return confirm("Adding subject(s):" + vals);
+      }
+
       function goBck() {
         window.location = "./index.php";
       }
@@ -62,9 +73,7 @@
           while ($sth->fetch()) { // found items stored in variable subject
             $countSub++;
             print("<tr><td colspan=2>$countSub</td>");
-
-            print("<td>$SubjectID</td><td>$SubjectName</td>");
-
+            print("<td><a href='./subject_info.php?subject=$SubjectID&path=add_subject'>$SubjectID</a></td><td>$SubjectName</td>");
             print("<td><input type='checkbox' name='List[]' value='$SubjectID' onClick='atLeastOne($_SESSION[totalSubj])'> </td></tr>");
           }
         ?>
@@ -72,7 +81,7 @@
 
       <table>
         <tr>
-          <td><input type="submit" name="addSubj" value="Confirm" disabled></td>
+          <td><input type="submit" name="addSubj" value="Confirm" onClick="return confirmation();" disabled></td>
           <td><input type="button" value="Back" onClick="goBck()"></td>
         </tr>
       </table>

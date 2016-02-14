@@ -13,7 +13,7 @@
   </head>
 
   <body>
-    <input type="button" onclick="window.location='./logout.php';" value="log out" class="topRight">
+    <input type="button" onclick="window.location='./logout.php'" value="log out" class="topRight">
 
     <?php
       // display ALERT BOX when redirected from other page
@@ -47,12 +47,12 @@
         print("<table border=1>");
         print("<caption>Registered Subject</caption>");
         print("<tr>
-               <td>$SubjectID</td><td>$SubjectName</td>
+               <td><a href='./subject_info.php?subject=$SubjectID&path=index'>$SubjectID</a></td><td>$SubjectName</td>
                </tr>");
 
         while ($sth->fetch()) {
           print("<tr>
-                 <td>$SubjectID</td><td>$SubjectName</td>
+                 <td><a href='./subject_info.php?subject=$SubjectID&path=index'>$SubjectID</a></td><td>$SubjectName</td>
                  </tr>");
         }
         print"</table>";

@@ -10,5 +10,5 @@
 
   // redirect to login page if user access page w/o loggin in
   if (!$sth->fetch())
-    header("Location: ./login.php");
+    header("Location: ./login.php?error=2");
 ?>

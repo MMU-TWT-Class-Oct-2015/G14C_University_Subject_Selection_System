@@ -22,8 +22,14 @@
           <td align="right">Password</td>
           <td><input type="password" name="passw"  required title="Please enter your password"></td>
           <?php
-            if (isset($_GET['error']))
-                echo '<td style=color:red>Log In Failed!</td>';
+            if (isset($_GET['error'])) {
+
+              if ($_GET['error'] == 1)
+                echo '<td style=color:red>Log in failed!</td>';
+              else if ($_GET['error'] == 2)
+                echo '<td style=color:red>Please log in to proceed!</td>';
+            }
+
             /*
             if(!($_SERVER["HTTPS"])) { // reload using https header if browser not using https connection
               header("Location: https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
