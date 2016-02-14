@@ -53,7 +53,7 @@
 
       <tr>
         <td height="35">&nbsp;</td>
-        <td height="35"><input type='submit' name="Submit" value="Register" onclick="return verification(this)"></td>
+        <td height="35"><input type='submit' name="Submit" value="Register" ></td>
       </tr>
     </table>
   </form>
