@@ -1,5 +1,6 @@
 <?php
-  include './session.php';
+  include './database_conn.php';
+  include_once './session_check.php';
 
   $database = new mysqli("localhost","root","","twt");
   if (mysqli_connect_errno())
@@ -10,7 +11,7 @@
       header("location: ./add_subject.php?error=1");
 
     $sth->bind_Param("ss", $_SESSION['id'], $SubjectID); // bind_param is used for modify records
-    //2 parameter, "ss" - 1st para= string, 2nd para = string
+
     if (!$sth->execute())
       header("location: ./add_subject.php?error=1");
 
