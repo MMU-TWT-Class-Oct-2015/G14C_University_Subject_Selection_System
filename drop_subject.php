@@ -10,6 +10,16 @@
     <title>Drop Subject</title>
 
     <script type="text/javascript">
+      // if checked box + registered subject is more than 5, button will be disabled
+      function atLeastOne() {
+        var totalSubj = document.querySelectorAll('input[type="checkbox"]:checked').length;
+
+        if (totalSubj)
+          document.myForm.addSubj.disabled = false;
+        else
+          document.myForm.addSubj.disabled = true;
+      }
+
       function goBck() {
         window.location = "./index.php";
       }
@@ -22,6 +32,9 @@
     <?php
       print("<p>Welcome " . $_SESSION['name'] . "</p>");
       print("<p>Your student ID:  " . $_SESSION['id'] . "</p>");
+
+      if (isset($_GET['error']))
+        print("<p style=color:red>Error adding subject</p>");
 
       $database = new mysqli("localhost","root","","twt");
       if (mysqli_connect_errno())
@@ -49,14 +62,14 @@
 
             print("<td>$SubjectID</td><td>$SubjectName</td>");
 
-            print("<td><input type='checkbox' name='List[]' value='$SubjectID'> </td></tr>");
+            print("<td><input type='checkbox' name='List[]' value='$SubjectID' onClick='atLeastOne()'> </td></tr>");
           }
         ?>
       </table>
 
       <table>
         <tr>
-        <td><input type="submit" name="addSubj" value="Confirm"></td>
+        <td><input type="submit" name="addSubj" value="Confirm" disabled></td>
           <td><input type="button" value="Back" onClick="goBck()"></td>
         </tr>
       </table>
