@@ -13,17 +13,16 @@
     <link rel="stylesheet" type="text/css" href="./beauty.css">
 
     <script type="text/javascript">
-      // if no subject registered, button will be disabled
-      // function might not be useful, as if there's no subject registered,
-      // students are not allowed to access drop_subject.php
-      function atLeastOne() {
-        var totalSubj = document.querySelectorAll('input[type="checkbox"]:checked').length;
+      // students must have at least 2 subjects enrolled?
+      /*
+      function atLeastTwo(val) {
+        var totalSubj = val - document.querySelectorAll('input[type="checkbox"]:checked').length;
 
-        if (totalSubj)
+        if (totalSubj >= 2)
           document.myForm.addSubj.disabled = false;
         else
           document.myForm.addSubj.disabled = true;
-      }
+      } */
 
       function confirmation() {
         var checkboxes = document.getElementsByName('List[]');
@@ -75,7 +74,7 @@
             $countSub++;
             print("<tr><td colspan=2>$countSub</td>");
             print("<td><a href='./subject_info.php?subject=$SubjectID&path=drop_subject'>$SubjectID</a></td><td>$SubjectName</td>");
-            print("<td><input type='checkbox' name='List[]' value='$SubjectID' onClick='atLeastOne()'> </td></tr>");
+            print("<td><input type='checkbox' name='List[]' value='$SubjectID'> </td></tr>"); //onClick='atLeastTwo($_SESSION[totalSubj])'
           }
 
           $sth->close();
@@ -84,7 +83,7 @@
 
       <table>
         <tr>
-        <td><input type="submit" name="addSubj" value="Confirm" onClick="return confirmation();" disabled></td>
+        <td><input type="submit" name="addSubj" value="Confirm" onClick="return confirmation();"></td>
           <td><input type="button" value="Back" onClick="goBck()"></td>
         </tr>
       </table>
