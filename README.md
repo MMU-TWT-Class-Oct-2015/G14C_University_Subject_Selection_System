@@ -125,9 +125,11 @@ vi) Import sql (twt.sql) from the repository into the Database
 i) use _git CMD_
 
 ii) change directory to _C:\xampp\htdocs\_
+
 _cd C:\xampp\htdocs\_
 
 iii) clone the repository G14C_University_Subject_Selection_System
+
 _git clone "https://github.com/Nic-chan/G14C_University_Subject_Selection_System.git"_
 
 iv) a new folder G14C_University_Subject_Selection_System will be created
