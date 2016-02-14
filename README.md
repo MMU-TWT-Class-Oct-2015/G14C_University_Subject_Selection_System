@@ -156,3 +156,11 @@ _addsubject_ button will redirect user to the add_subject.php
 _dropsubject_ button will redirect user to the drop_subject.php
 
 viii) a _logout_ button is available at the top right corner of the page
+
+##HTTPS forced connection
+
+i) open C:\xampp\apache\conf\httpd.conf
+
+ii) open httpd.conf in repository
+
+iii) copy the codes from https.conf (git repo) into C:\xampp\apache\conf\httpd.conf __TOP of files__
