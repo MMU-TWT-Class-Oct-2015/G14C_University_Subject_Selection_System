@@ -8,27 +8,28 @@
     <link rel="stylesheet" type="text/css" href="./beauty.css">
   </head>
 
-  <body>
-    <p>Subject Registration</p>
+  <body class="login_page">
 
-    <form method="POST" action="./login_process.php">
-      <table class="center">
-        <tr>
-          <td align="right">User ID</td> <!-- pattern: exactly 10 alphanumeric -->
-          <td><input type="text" name="userid" required pattern="[A-Za-z0-9]{10}" title="10 characters excluding symbols &amp spaces"></td>
-        </tr>
+  <div class="content">
+    <div class="row1">
+    <form  method="POST" action="./login_process.php">
 
-        <tr>
-          <td align="right">Password</td>  <!-- no pattern, but cannot submit when no password provided -->
-          <td><input type="password" name="passw"  required title="Please enter your password"></td>
+
+        	<h1>STUDENT LOGIN FORM</h1>
+
+          <p>Student ID  <!-- pattern: exactly 10 alphanumeric -->
+          <input type="text" name="userid" required pattern="[A-Za-z0-9]{10}" title="10 characters excluding symbols &amp spaces"></p>
+
+          <p>Password  <!-- no pattern, but cannot submit when no password provided -->
+          <input type="password" name="passw"  required title="Please enter your password"></p>
           <?php
 
             if (isset($_GET['error'])) {
             //Determine if a variable ('error') is set and is not NULL
               if ($_GET['error'] == 1)
-                echo '<td style=color:red>Log in failed!</td>';
+                echo '<p class="warning">Log in failed!</p>';
               else if ($_GET['error'] == 2)
-                echo '<td style=color:red>Please log in to proceed!</td>';
+                echo '<p class="warning">Please log in to proceed!</p>';
             }
 
             /*
@@ -37,18 +38,18 @@
               exit();
             } */
           ?>
-        </tr>
+    </div>
 
-        <tr>
-          <td height="35">&nbsp;</td>
-          <td height="35"><input type="submit" name="Submit" value="Sign In"></td>
-        </tr>
-      </table>
+        <div class ="row2">
+          	<a href="./register.php">REGISTER</a>
+          <input type="submit" name="Submit" value="Sign In">
+        </div>
+
     </form>
 
-    <form action="./register.php">
-      <input type="submit" value="Register" class="botRight">
-    </form>
+</div>
+
+
   </body>
 
 </html>
