@@ -6,21 +6,17 @@
 - simple and user friendly design
 
 ##* Clarify potential user and specific requirement
-- potential user : Student
-- specific requirement : A computer/laptop/smart devices with intranet access to the server
+- *potential user* : Student
+- *specific requirement* : A computer/laptop/smart devices with intranet access to the server
 
 ##* Evaluate the required hardware, software platform 
-- Hardware : 
-	Server 
-- a normal standard computer running on Xampp
-	Client (Student)
-- a device (computer/smart devices) with access to the server intranet
+- *Hardware*: 
+Server           - a normal standard computer running on Xampp
+Client (Student) - a device (computer/smart devices) with access to the server intranet
 
-- Software : 
-	Server
--Xampp (Apache & MYSQL)
-	Client
--browser
+- *Software* : 
+- Server-Xampp (Apache & MYSQL)
+- Client-browser
 
 
 ##* Consider delivery platform – running on network or stand alone
