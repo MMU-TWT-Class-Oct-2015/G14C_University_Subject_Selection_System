@@ -12,15 +12,15 @@
 ##* Evaluate the required hardware, software platform 
 - __Hardware__
 
-Server           - a normal standard computer running on Xampp
+  Server           - a normal standard computer running on Xampp
 
-Client (Student) - a device (computer/smart devices) with access to the server intranet
+  Client (Student) - a device (computer/smart devices) with access to the server intranet
 
 - __Software__
 
- Server-Xampp (Apache & MYSQL)
+  Server-Xampp (Apache & MYSQL)
 
- Client-browser
+  Client-browser
 
 
 ##* Consider delivery platform – running on network or stand alone
