@@ -13,16 +13,17 @@
     <link rel="stylesheet" type="text/css" href="./beauty.css">
 
     <script type="text/javascript">
-      // students must have at least 2 subjects enrolled?
-      /*
-      function atLeastTwo(val) {
-        var totalSubj = val - document.querySelectorAll('input[type="checkbox"]:checked').length;
+      // if no subject registered, button will be disabled
+      // function might not be useful, as if there's no subject registered,
+      // students are not allowed to access drop_subject.php
+      function atLeastOne() {
+        var totalSubj = document.querySelectorAll('input[type="checkbox"]:checked').length;
 
-        if (totalSubj >= 2)
+        if (totalSubj)
           document.myForm.addSubj.disabled = false;
         else
           document.myForm.addSubj.disabled = true;
-      } */
+      }
 
       function confirmation() {
         var checkboxes = document.getElementsByName('List[]');
@@ -42,8 +43,8 @@
   </head>
 
   <body>
-    <div>
-      <h>Drop Subject</h>
+    <div class="top">
+      <h class="title">Drop Subject</h>
       <input type="button" class= "logout topRight" onclick="window.location='./logout.php'" value="Log out">
     </div>
 
@@ -63,7 +64,7 @@
     ?>
 
     <form name=myForm method="POST" action=./drop_process.php>
-      <table border=1>
+      <table class="table1">
         <?php
           /***********   DISPLAY TABLE **************/
           print("<tr>    <th colspan =2 >#</th>   <th>Subject Code</th>   <th>Subject</th>   <th>Select</th>  </tr>");
@@ -74,19 +75,17 @@
             $countSub++;
             print("<tr><td colspan=2>$countSub</td>");
             print("<td><a href='./subject_info.php?subject=$SubjectID&path=drop_subject'>$SubjectID</a></td><td>$SubjectName</td>");
-            print("<td><input type='checkbox' name='List[]' value='$SubjectID'> </td></tr>"); //onClick='atLeastTwo($_SESSION[totalSubj])'
+            print("<td><input type='checkbox' name='List[]' value='$SubjectID' onClick='atLeastOne()'> </td></tr>");
           }
 
           $sth->close();
         ?>
       </table>
 
-      <table>
-        <tr>
-        <td><input type="submit" name="addSubj" value="Confirm" onClick="return confirmation();"></td>
-          <td><input type="button" value="Back" onClick="goBck()"></td>
-        </tr>
-      </table>
+      <input type="submit" name="addSubj" value="Confirm" onClick="return confirmation();" disabled>
+      <input type="button" value="Back" onClick="goBck()">
+
+
     </form>
   </body>
 
