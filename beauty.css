@@ -16,8 +16,16 @@ div h {
   padding: 5px 10px 5px 15px; /* top right bottom left */
 }
 
-.button {
-  background: rgba(50,50,50,0.2); /* opacity cant be used as child(text) is inherited as well */
+table {
+  border-collapse: collapse;
+}
+
+a {
+  text-decoration: none;
+}
+
+.logout {
+  background: rgba(155,0,0,0.3); /* opacity cant be used as child(text) is inherited as well */
   border: none;
   color: white;
   padding: 15px 32px; /* verti hori */
@@ -30,12 +38,8 @@ div h {
   cursor: pointer;
 }
 
-.button:hover {
-  background: rgba(25,25,25,0.25);
-}
-
-table {
-  border-collapse: collapse;
+.logout:hover {
+  background: rgba(155,0,0,0.4);
 }
 
 .botRight {
