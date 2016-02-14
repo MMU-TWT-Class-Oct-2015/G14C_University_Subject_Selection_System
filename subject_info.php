@@ -2,47 +2,46 @@
 
 <html>
 
-<head>
-  <meta charset = "utf-8">
-  <title>Subject Information</title>
+  <head>
+    <meta charset = "utf-8">
+    <title>Subject Information</title>
 
-  <link rel="stylesheet" type="text/css" href="beauty.css">
-</head>
+    <link rel="stylesheet" type="text/css" href="beauty.css">
+  </head>
 
   <body>
-  <?php
-    include './session.php';
+    <?php
+      include './database_conn.php';
+      include_once './session_check.php';
 
-    $subject = $_GET['subject'];
-    $path = $_GET['path'];
+      $subject = $_GET['subject'];
+      $path = $_GET['path'];
 
-    $database = new mysqli("localhost","root","","twt");
-    if (mysqli_connect_errno())
-      printf("<p style=color:red>Connection to database failed: ", mysqli_connect_error());
+      $sth = $database->prepare("SELECT * FROM subject WHERE ID='$subject' LIMIT 1;");
+      $sth->execute();
 
-    $sth = $database->prepare("SELECT * FROM subject WHERE ID='$subject' LIMIT 1;");
-    $sth->execute();
+      $sth->bind_result($SubjectID,$SubjectName,$SubjectYear);
 
-    $sth->bind_result($SubjectID,$SubjectName,$SubjectYear);
+      if ($sth->fetch())
+        print("<div>
+                 <h>$SubjectName</h>
+                 <input type='button' class='logout topRight' onclick=window.location='./logout.php' value='Log out>'
+              </div>
 
-    if ($sth->fetch())
-      print("<div>
-               <h>$SubjectName</h>
-               <input type='button' class='button topRight' onclick=window.location='./logout.php' value='Log out>'
-            </div>
+              <br><br>
 
-            <br><br>
+              <table border=0>
+                <tr><td>Subject Code</td> <td>$SubjectID</td></tr>
+                <tr><td>Subject Name</td> <td>$SubjectName</td></tr>
+                <tr><td>Year Offered</td> <td>$SubjectYear</td><tr>
+              </table>
 
-            <table border=0>
-              <tr><td>Subject Code</td> <td>$SubjectID</td></tr>
-              <tr><td>Subject Name</td> <td>$SubjectName</td></tr>
-              <tr><td>Year Offered</td> <td>$SubjectYear</td><tr>
-            </table>
+              <br>
 
-            <br>
+              <input type='button' value='Back' onclick=window.location='./$path.php'>");
 
-            <input type='button' value='Back' onclick=window.location='./$path.php'>");
-  ?>
-</body>
+      $sth->close();
+    ?>
+  </body>
 
 </html>
