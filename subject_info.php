@@ -25,7 +25,7 @@
       if ($sth->fetch())
         print("<div>
                  <h>$SubjectName</h>
-                 <input type='button' class='logout topRight' onclick=window.location='./logout.php' value='Log out>'
+                 <input type='button' class='logout topRight' onclick=window.location='./logout.php' value='Log out'>
               </div>
 
               <br><br>
