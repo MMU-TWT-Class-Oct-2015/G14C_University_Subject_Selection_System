@@ -1,5 +1,5 @@
 <?php
-  session_start();
+  include './session.php'
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +13,8 @@
   </head>
 
   <body>
+
+      <input type="button" onclick="window.location='./logout.php';" value="log out">
     <?php
       // display ALERT BOX when redirected from other page
       if (isset($_GET["add"])) // enrolled successfully
@@ -34,7 +36,7 @@
 
         $database = new mysqli("localhost","root","","twt");
         if (mysqli_connect_errno())
-          printf("<p style=color:red>Connection failed: ", mysqli_connect_error());
+          printf("<p style=color:red>Connection to database failed: ", mysqli_connect_error());
 
         $sth = $database->prepare("SELECT student_subject.SubjectID, subject.Name FROM subject, student_subject WHERE
                             student_subject.StudentID = " . $_SESSION['id'] . " AND

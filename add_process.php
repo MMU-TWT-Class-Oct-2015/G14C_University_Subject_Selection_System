@@ -1,9 +1,9 @@
 <?php
-  session_start();
+  include './session.php';
 
   $database = new mysqli("localhost","root","","twt");
   if (mysqli_connect_errno())
-    printf("<p style=color:red>Connection failed: ", mysqli_connect_error());
+    printf("<p style=color:red>Connection to database failed: ", mysqli_connect_error());
 
   foreach($_POST['List'] as $SubjectID) {
     if (!$sth = $database->prepare("INSERT INTO student_subject (StudentID, SubjectID) VALUES (?,?)")) // prepare statement
