@@ -1,5 +1,6 @@
 <?php
-  include './session.php'
+  include './database_conn.php';
+  include_once'./session_check.php'
 ?>
 
 <!DOCTYPE html>
