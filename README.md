@@ -128,11 +128,11 @@ ii) Change URL: _localhost/G14C_University_Subject_Selection_System/login.php_
 
 iii) A login page will be displayed to the user
 
-default user name : __1234567890__
+- default user name : __1234567890__
 
-default password  : __123456__
+- default password  : __123456__
 
-~User can choose Register at the bottom right to register a new account
+- ~User can choose Register at the bottom right to register a new account
 
 v) After logging in, it will redirect user to _index.php_
 
