@@ -10,11 +10,10 @@
 - *specific requirement* : A computer/laptop/smart devices with intranet access to the server
 
 ##* Evaluate the required hardware, software platform 
-- *Hardware*: 
+###Hardware: 
 - Server           - a normal standard computer running on Xampp
 - Client (Student) - a device (computer/smart devices) with access to the server intranet
-
-- *Software* : 
+###Software : 
 - Server-Xampp (Apache & MYSQL)
 - Client-browser
 
