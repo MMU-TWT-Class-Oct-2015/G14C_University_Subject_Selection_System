@@ -97,6 +97,7 @@
       <table>
         <tr>
           <td><input type="submit" name="addSubj" value="Confirm" onClick="return confirmation();" disabled></td>
+          //disabled means default is disabled (cannot be clicked)
           <td><input type="button" value="Back" onClick="goBck()"></td>
         </tr>
       </table>
