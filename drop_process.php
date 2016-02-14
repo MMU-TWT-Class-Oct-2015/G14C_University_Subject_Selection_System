@@ -5,30 +5,18 @@
   if (mysqli_connect_errno())
     printf("<p style=color:red>Connection failed: ", mysqli_connect_error());
 
-  var $fail=false;
+  foreach($_POST['List'] as $SubjectID) {
+    if (!$sth = $database->prepare("DELETE FROM student_subject WHERE StudentID=? AND SubjectID =?;")) // prepare statement
+      header("location: ./drop_subject.php?error=1");
 
-  foreach($_POST['List'] as $subjectID) {
-    if (!$sth = $database->prepare("DELETE FROM student_subject WHERE StudentID=? AND SubjectID =?;"))  {// prepare statement
-      print("<p> drop unsuccessful </p>");
-      $fail = true;
-    }
+    $sth->bind_Param("ss", $_SESSION['id'], $SubjectID); // bind_param is used for modify records
 
-    $sth->bind_Param("ss", $_SESSION['id'], $subjectID); // bind_param is used for modify records
-
-    if (!$sth->execute()) {
-      print("<p> drop unsuccessful </p>");
-      $fail = true;
-    }
+    if (!$sth->execute())
+      header("location: ./drop_subject.php?error=1");
 
     $sth->close();
   }
   $database->close();
 
-  if ($fail == false)
-    print("<p> drop successful </p>");
+  header("location: ./index.php?drop=1");
 ?>
-
-<!DOCTYPE html>
-<html>
-  <input type="button" onclick="location.href='./index.php';" value="home" />
-</html>
