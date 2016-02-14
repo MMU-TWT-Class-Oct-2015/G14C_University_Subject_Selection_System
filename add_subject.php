@@ -45,8 +45,8 @@
   </head>
 
   <body>
-    <div>
-      <h>Subject Enrollment</h>
+    <div class="top">
+      <h class="title">Subject Enrollment</h>
       <input type="button" class= "logout topRight" onclick="window.location='./logout.php'" value="Log out">
     </div>
 
@@ -70,7 +70,7 @@
     ?>
 
     <form name=myForm method="POST" action=./add_process.php>
-      <table border=1>
+      <table class="table1">
         <?php
           /***********   DISPLAY TABLE **************/
           print("<tr>    <th colspan =2 >#</th>   <th>Subject Code</th>   <th>Subject</th>   <th>Select</th>  </tr>");
@@ -94,13 +94,11 @@
         ?>
       </table>
 
-      <table>
-        <tr>
-          <td><input type="submit" name="addSubj" value="Confirm" onClick="return confirmation();" disabled></td>
-          <!-- disabled means default is disabled (cannot be clicked) -->
-          <td><input type="button" value="Back" onClick="goBck()"></td>
-        </tr>
-      </table>
+        <input type="submit" name="addSubj" value="Confirm" onClick="return confirmation();" disabled></td>
+        <!--  disabled means default is disabled (cannot be clicked) --->
+        <input type="button" value="Back" onClick="goBck()">
+
+
     </form>
   </body>
 
