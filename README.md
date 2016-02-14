@@ -99,13 +99,13 @@
  - unset session
  - redirect to ./login.php
 
-#4) Evaluation
+#6) Evaluation
 - A simple and user friendly design interface has been developed
 - Student can register through the register interface provided
 - Student can then login to the subject registration system
 - Student can add and drop subject with the constrain provided from question
 
-#6) "How to run the system"
+#7) "How to run the system"
 
 ##CREATE DATABASE
 i) Install Xampp v5.6.15 _https://www.apachefriends.org/index.html_
