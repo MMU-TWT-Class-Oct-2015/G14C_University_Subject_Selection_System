@@ -13,17 +13,16 @@
   </head>
 
   <body>
-
-    <input type="button" onclick="window.location='./logout.php';" value="log out">
+    <input type="button" onclick="window.location='./logout.php';" value="log out" class="topRight">
 
     <?php
       // display ALERT BOX when redirected from other page
-      if (isset($_GET["add"])) // enrolled successfully
+      if (isset($_GET['add'])) // enrolled successfully
         echo "<script language='javascript'>
                 alert('Subject successfully enrolled! :D');
               </script>";
 
-      if (isset($_GET["drop"])) // enrolled successfully
+      if (isset($_GET['drop'])) // enrolled successfully
         echo "<script language='javascript'>
                 alert('Subject successfully dropped! :D');
               </script>";
@@ -40,40 +39,42 @@
       $sth->execute();
       $sth->bind_result($SubjectID,$SubjectName);
 
+      // disable button if no subject registered
+      $disabled = "disabled";
+
+      // unable to use num_rows before fetch
       if ($sth->fetch()) {
         print("<table border=1>");
         print("<caption>Registered Subject</caption>");
         print("<tr>
                <td>$SubjectID</td><td>$SubjectName</td>
                </tr>");
-      }
-      else
-        print("You did not enrolled any subject");
 
-      while ($sth->fetch()) {
-        print("<tr>
-               <td>$SubjectID</td><td>$SubjectName</td>
-               </tr>");
-      }
+        while ($sth->fetch()) {
+          print("<tr>
+                 <td>$SubjectID</td><td>$SubjectName</td>
+                 </tr>");
+        }
+        print"</table>";
+        $disabled = "";
+      } else
+        print("You have not enrolled in any of the subjects");
+        // session subj contain total number of subject student has registered
+        // it is used to add with total number of checked subject(s) in registerform.php to ensure
+        // to ensure selected subject(s) not more than 5
+        $_SESSION['totalSubj'] = $sth->num_rows;
 
-      print"</table>";
+        print("<table>
+                <tr>
+                  <form action='./add_subject.php' >
+                    <td height='35'><input type='submit' value='Add Subject'></td>
+                  </form>
 
-      // session subj contain total number of subject student has registered
-      // it is used to add with total number of checked subject(s) in registerform.php to ensure
-      // to ensure selected subject(s) not more than 5
-      $_SESSION['totalSubj'] = $sth->num_rows;
-
-      print("<table>
-               <tr>
-                 <form action='./add_subject.php' >
-                   <td height='35'><input type='submit' value='Add Subject'></td>
-                 </form>
-
-                 <form action='./drop_subject.php'>
-                   <td height='35'><input type='submit' value='Drop Subject'></td>
-                 </form>
-               </tr>
-             </table>");
+                  <form action='./drop_subject.php'>
+                    <td height='35'><input type='submit' value='Drop Subject' $disabled></td>
+                  </form>
+                </tr>
+               </table>");
       ?>
   </body>
 </html>
