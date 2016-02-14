@@ -18,8 +18,8 @@
       /***** Get ID & PASSWD *****/
       //string mysql_escape_string ( string $unescaped_string )
       //escape string = JavaScript%20is%20fun%21
-      //unescape      = JavaScript is fun! 
-      //prevent sql injection
+      //unescape      = JavaScript is fun!
+      //process escape string then send to mysql query to enhance security and prevent sql injection
       $userid = mysql_escape_string($_POST['userid']);
       $passw1 = mysql_escape_string($_POST['passw1']);
       $username=$_POST['username'];
