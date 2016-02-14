@@ -1,5 +1,6 @@
 <?php
-  include './session.php';
+  include './database_conn.php';
+  include_once './session_check.php';
 ?>
 
 <!DOCTYPE html>
@@ -27,13 +28,13 @@
       //function is called when confirm button is pressed
       function confirmation() {
         var checkboxes = document.getElementsByName('List[]');
-        var vals = "";
+        var totalSubjects = "";
 
         for (var i=0; i<checkboxes.length; i++) {
           if (checkboxes[i].checked) //checkboxes -- ticked
-            vals += "\n" + checkboxes[i].value; //stored "ticked - subject name" into vals
+            totalSubjects += "\n" + checkboxes[i].value; //stored "ticked - subject name" into vals
         }
-        return confirm("Adding subject(s):" + vals); //display confirmation msg - "ticked - subject name"
+        return confirm("Adding subject(s):" + totalSubjects); //display confirmation msg - "ticked - subject name"
       }
 
       //function is called when Back button is pressed
@@ -46,7 +47,7 @@
   <body>
     <div>
       <h>Subject Enrollment</h>
-      <input type="button" class= "button topRight" onclick="window.location='./logout.php'" value="Log out">
+      <input type="button" class= "logout topRight" onclick="window.location='./logout.php'" value="Log out">
     </div>
 
     <?php
@@ -56,12 +57,8 @@
       if (isset($_GET['error']))
         print("<p style=color:red>Error adding subject</p>");
 
-      $database = new mysqli("localhost","root","","twt");
-      if (mysqli_connect_errno())
-        printf("<p style=color:red>Connection to database failed: ", mysqli_connect_error());
-
       /********  SUBJECT NAME AND SUBJECT CODE according to STUDENT's YEAR *********/
-      //added subjects will not be displayed 
+      //added subjects will not be displayed
       $sth = $database->prepare("SELECT subject.ID,subject.Name FROM subject
                                  WHERE subject.YearOffered = (SELECT Year FROM student
                                    WHERE student.ID = " . $_SESSION['id'] . ")
@@ -90,8 +87,10 @@
             //array List to stored $subjectID value
             //Each time checkbox is clicked, function atleastOne($_SESSION[totalSubj]) is called
             //$_SESSION[totalSubj] --> index.php, (after displaying all the registered subject)
-            
+
           }
+
+          $sth->close();
         ?>
       </table>
 
