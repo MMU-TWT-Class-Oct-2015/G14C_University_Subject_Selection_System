@@ -46,30 +46,41 @@
 - if both hash password value are the same, redirect ./index.php
 - else redirect ./login.php?error=1?
 
-## iii) session.php
- - run in most of the php files
- - prevent student to indirect access php files by changing url directory
- - Student without valid session ID will be redirect to ./login.php?error=2
-
-## iv) index.php
+## iii) index.php
  - a welcome page after login
  - display all registered subjects
  - add subject and drop subject button
- - 
  
-## v) add_subject.php
+ 
+## iv) add_subject.php
  - Display subjects list based on student YEAR
  - Subject which have registered will not be display
  - Confirm button will be ENABLE when (totalSubj is more than 1 and less than 6)
  - totalSubj is calculated by (total subject registered +  number of checked box ticked)
  - form submitted to add_process.php
 
-## vi) add_process.php
+## v) add_process.php
+ - automatically run after addsubj button is pressed
  - receive List (SubjectID) from add_subject.php
  - each List will be process one by one, SQL query will add the subjects into database one by one
  - bind_Param is used to prevent SQL injection
  - successful registering, redirect index.php?add=1
- - 
+
+## vi) drop_subject/drop_proces
+ - codes are almost same as add_subject & add_process
+
+## vii) subject_info.php
+ - obtained parameter through URL (using GET)
+ - provide the details of the subject selected
+ - 2 parameter --> $subject (subjectID), $path (path)
+ - path is use for back purposes
+ - if the Subject is clicked from index.php,  it will return to index.php when back is press
+ - if the Subject is clicked from add_subject.php, it will then return to add_subject.php  
+ 
+## viii) session_check.php
+ - run in most of the php files
+ - prevent student to indirect access php files by changing url directory
+ - Student without valid session ID will be redirect to ./login.php?error=2
  
 
 
