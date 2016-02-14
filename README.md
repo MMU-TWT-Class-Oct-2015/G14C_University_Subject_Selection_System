@@ -1,4 +1,12 @@
-#1) System Requirement
+#1) Introduction about your system.
+ - Student Subject Registration System.
+ - A user friendly system that allowed user to interact with the system to register or drop subject
+
+#2) Scope of the project
+- Student are able to viewed all their registered subject
+- Student are able to register or drop their subject through an interface
+
+#3) System Requirement
 ##* Outline the aim and objective of system 
 - allow student with valid credential to access the subject registration system
 - allow student to add and drop subject 
@@ -29,9 +37,9 @@
 
 
 
-#2) Design Issues
+#4) Design Issues
 
-#3) Implementation
+#5) Implementation
 
 ## i) login.php 
 - an interface allowing student to key in their student ID and password
@@ -97,7 +105,7 @@
 - Student can then login to the subject registration system
 - Student can add and drop subject with the constrain provided from question
 
-#5) "How to run the system"
+#6) "How to run the system"
 
 ##CREATE DATABASE
 i) Install Xampp v5.6.15 _https://www.apachefriends.org/index.html_
