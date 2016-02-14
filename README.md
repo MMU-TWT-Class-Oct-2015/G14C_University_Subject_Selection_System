@@ -82,7 +82,10 @@
  - prevent student to indirect access php files by changing url directory
  - Student without valid session ID will be redirect to ./login.php?error=2
  
-
+## xi) database_conn.php
+ - a template for database connection
+ - called on most php files 
+ - reduce redundancy of codes 
 
 #4) Evaluation
 - A simple and user friendly design interface has been developed
