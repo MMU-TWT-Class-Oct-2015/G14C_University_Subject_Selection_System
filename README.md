@@ -3,7 +3,7 @@
  - A user friendly system that allowed user to interact with the system to register or drop subject
 
 #2) Scope of the project
-- Student are able to viewed all their registered subject
+- Student are able to view all their registered subject
 - Student are able to register or drop their subject through an interface
 
 #3) System Requirement
@@ -103,6 +103,12 @@
  - logout button is present in index, add/drop subject and subject info pages
  - unset session
  - redirect to ./login.php
+
+## screenshots
+ - ![Alt text](http://i.imgur.com/Q4KpfYr.jpg "register account")
+ - ![Alt text](http://i.imgur.com/t9xI1s7.jpg "log in")
+ - ![Alt text](http://i.imgur.com/Q4KpfYr.jpg "enroll subject")
+ - ![Alt text](http://i.imgur.com/iOmpYnK.jpg "extras")
 
 #6) Evaluation
 - A simple and user friendly design interface has been developed
