@@ -15,8 +15,7 @@
 
   <body>
     <div class="top" >
-
-          <h class= "title">Home</h>
+      <h class= "title">Home</h>
 
       <input type="button" class= "logout topRight" onclick="window.location='./logout.php'" value="Log out">
     </div>

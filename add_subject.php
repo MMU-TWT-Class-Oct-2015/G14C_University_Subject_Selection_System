@@ -87,9 +87,8 @@
             //array List to stored $subjectID value
             //Each time checkbox is clicked, function atleastOne($_SESSION[totalSubj]) is called
             //$_SESSION[totalSubj] --> index.php, (after displaying all the registered subject)
-
           }
-
+          
           $sth->close();
         ?>
       </table>
@@ -97,8 +96,6 @@
         <input type="submit" name="addSubj" value="Confirm" onClick="return confirmation();" disabled></td>
         <!--  disabled means default is disabled (cannot be clicked) --->
         <input type="button" value="Back" onClick="goBck()">
-
-
     </form>
   </body>
 

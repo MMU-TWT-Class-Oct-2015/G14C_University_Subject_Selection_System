@@ -84,8 +84,6 @@
 
       <input type="submit" name="addSubj" value="Confirm" onClick="return confirmation();" disabled>
       <input type="button" value="Back" onClick="goBck()">
-
-
     </form>
   </body>
 

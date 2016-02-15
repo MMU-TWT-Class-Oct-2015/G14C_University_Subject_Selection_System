@@ -23,14 +23,14 @@
       $sth->bind_result($SubjectID,$SubjectName,$SubjectYear);
 
       if ($sth->fetch())
-        print("<div>
-                 <h>$SubjectName</h>
+        print("<div class='top'>
+                 <h class='title'>$SubjectName</h>
                  <input type='button' class='logout topRight' onclick=window.location='./logout.php' value='Log out'>
               </div>
 
-              <br><br>
+              <br><br><br>
 
-              <table border=0>
+              <table class='table1'>
                 <tr><td>Subject Code</td> <td>$SubjectID</td></tr>
                 <tr><td>Subject Name</td> <td>$SubjectName</td></tr>
                 <tr><td>Year Offered</td> <td>$SubjectYear</td><tr>

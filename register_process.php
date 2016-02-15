@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset = "utf-8">
     <title>Register Validation</title>
@@ -9,7 +10,6 @@
     function successful(){
       alert("Register successful!");
       window.location="./login.php";;
-
     }
   </script>
 

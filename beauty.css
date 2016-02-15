@@ -18,7 +18,7 @@
 
 .row1 {
   border-radius: 10px 10px 0px 0px;
-	background-color:#e74c3c;  /*sun color */
+	background-color:#0086b3;
   padding-top: 32px;
 	padding-bottom: 32px;
 }
@@ -42,17 +42,17 @@
 }
 
 .row2 a:hover {
-	color:#ff9f3e;
+	color:#f6ad8d;
 }
 
 .login_page{
-  background-color:#ff9f3e;
+  background-color:#cef5f9;
 	font-family: 'Open Sans', sans-serif;
 }
 
 .login_page input[type="submit"] {
 	padding:10px;
-	background-color:#e74c3c;
+	background-color:#0086b3;
 	width:150px;
 	border:none;
 	color:white;
@@ -63,7 +63,7 @@
 }
 
 .login_page input[type="submit"]:hover {
-	background-color:#ff9f3e;
+	background-color:#0099cc;
 }
 
 .warning{
@@ -80,7 +80,6 @@
    border-collapse: collapse;
    font-family:Arial,sans-serif;
    font-size: 11pt;
-
  }
 
 .table1 th{
@@ -125,8 +124,6 @@
 	text-align:left;
   margin: auto;
   font-family: 'Open Sans', sans-serif;
-
-
 }
 
 a {
@@ -157,7 +154,7 @@ input[type="button"] {
  }
 
 .logout {
-  background: rgba(155,0,0,0.3); /* opacity cant be used as child(text) is inherited as well */
+  background: rgba(231,76,60,0.7); /* opacity cant be used as child(text) is inherited as well */
   border: none;
   color: white;
   padding: 15px 32px; /* verti hori */
