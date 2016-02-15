@@ -20,7 +20,7 @@
       $sth = $database->prepare("SELECT * FROM subject WHERE ID='$subject' LIMIT 1;");
       $sth->execute();
 
-      $sth->bind_result($SubjectID,$SubjectName,$SubjectYear);
+      $sth->bind_result($SubjectID,$SubjectName,$SubjectYear,$SubjectDesc);
 
       if ($sth->fetch())
         print("<div class='top'>
@@ -34,6 +34,7 @@
                 <tr><td>Subject Code</td> <td>$SubjectID</td></tr>
                 <tr><td>Subject Name</td> <td>$SubjectName</td></tr>
                 <tr><td>Year Offered</td> <td>$SubjectYear</td><tr>
+                <tr><td>Description</td> <td>$SubjectDesc</td><tr>
               </table>
 
               <br>

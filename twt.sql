@@ -74,41 +74,42 @@ INSERT INTO `student_subject` (`StudentID`, `SubjectID`) VALUES
 CREATE TABLE `subject` (
   `ID` varchar(7) NOT NULL,
   `Name` varchar(50) NOT NULL,
-  `YearOffered` int(1) NOT NULL
+  `YearOffered` int(1) NOT NULL,
+  `Description` varchar(200)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `subject`
 --
 
-INSERT INTO `subject` (`ID`, `Name`, `YearOffered`) VALUES
-('COO4135', 'Cookies', 3),
-('TAC3121', 'Applied Cryptography', 3),
-('TAO1221', 'Computer Architecture & Organisation', 1),
-('TCN2141', 'Computer Networks', 2),
-('TCP1121', 'Computer Programming', 1),
-('TCP3151', 'Integrative Programming & Technologies', 3),
-('TCS2251', 'Computer Security', 2),
-('TDB1131', 'Database Systems', 1),
-('TDC1231', 'Data Communications & Networking', 1),
-('TDF3241', 'Digital Forensics', 3),
-('TDS2111', 'Data Structures & Algorithms', 2),
-('TEH3221', 'Ethical Hacking & Security Assessment', 3),
-('TEP1241', 'Ethics & Professional Conducts', 1),
-('THI2211', 'Human Computer Interaction', 2),
-('TIA2221', 'Information Assurance & Security', 2),
-('TIT3131', 'Information Theory', 3),
-('TMA1111', 'Mathematical Techniques', 1),
-('TMA1211', 'Discrete Mathematics & Probability', 1),
-('TMI3231', 'Malware & Intrusion Detection', 3),
-('TOP2121', 'Object-Oriented Programming', 2),
-('TOS1141', 'Operating Systems', 1),
-('TPB3141', 'Password Authentication & Biometrics', 3),
-('TSA2131', 'System Analysis & Design', 2),
-('TSA2151', 'System Administration & Maintenance', 2),
-('TSI2241', 'System Integration & Architecture', 2),
-('TTV2161', 'Technopreneur Venture', 2),
-('TWT2231', 'Web Techniques & Application', 2);
+INSERT INTO `subject` (`ID`, `Name`, `YearOffered`, `Description`) VALUES
+('COO4135', 'Cookies', 3, 'I need moar'),
+('TAC3121', 'Applied Cryptography', 3, 'Cryptography stuff'),
+('TAO1221', 'Computer Architecture & Organisation', 1, 'Architecture stuff'),
+('TCN2141', 'Computer Networks', 2, 'More networking stuff'),
+('TCP1121', 'Computer Programming', 1, 'C++ stuff'),
+('TCP3151', 'Integrative Programming & Technologies', 3, 'Integration stuff'),
+('TCS2251', 'Computer Security', 2, 'Security stuff'),
+('TDB1131', 'Database Systems', 1, 'Database stuff'),
+('TDC1231', 'Data Communications & Networking', 1, 'Networking stuff'),
+('TDF3241', 'Digital Forensics', 3, 'Forensics stuff'),
+('TDS2111', 'Data Structures & Algorithms', 2, 'Data stuff'),
+('TEH3221', 'Ethical Hacking & Security Assessment', 3, 'Hacking stuff'),
+('TEP1241', 'Ethics & Professional Conducts', 1, 'Ethics stuff'),
+('THI2211', 'Human Computer Interaction', 2, 'Interaction stuff'),
+('TIA2221', 'Information Assurance & Security', 2, 'Info security stuff'),
+('TIT3131', 'Information Theory', 3, 'Theory stuff'),
+('TMA1111', 'Mathematical Techniques', 1, 'Maths stuff'),
+('TMA1211', 'Discrete Mathematics & Probability', 1, 'Probability stuff'),
+('TMI3231', 'Malware & Intrusion Detection', 3, 'Malware stuff'),
+('TOP2121', 'Object-Oriented Programming', 2, 'Java stuff'),
+('TOS1141', 'Operating Systems', 1, 'OS stuff'),
+('TPB3141', 'Password Authentication & Biometrics', 3, 'Authentication stuff'),
+('TSA2131', 'System Analysis & Design', 2, 'Design stuff'),
+('TSA2151', 'System Administration & Maintenance', 2, 'System stuff'),
+('TSI2241', 'System Integration & Architecture', 2, 'Integration stuff'),
+('TTV2161', 'Technopreneur Venture', 2, 'Business stuff'),
+('TWT2231', 'Web Techniques & Application', 2, 'Web stuff');
 
 --
 -- Indexes for dumped tables
