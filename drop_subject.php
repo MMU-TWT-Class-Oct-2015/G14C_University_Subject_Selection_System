@@ -35,10 +35,6 @@
         }
         return confirm("Dropping subject(s):" + totalSubjects);
       }
-
-      function goBck() {
-        window.location = "./index.php";
-      }
     </script>
   </head>
 
@@ -83,7 +79,7 @@
       </table>
 
       <input type="submit" name="addSubj" value="Confirm" onClick="return confirmation();" disabled>
-      <input type="button" value="Back" onClick="goBck()">
+      <input type="button" value="Back" onClick="window.location ='./index.php'">
     </form>
   </body>
 

@@ -146,6 +146,10 @@ input[type="button"] {
  font-family: 'Open Sans', sans-serif;
 }
 
+input[type="button"]:hover, input[type="submit"]:hover{
+  cursor: pointer;
+}
+
 .content {
 	width:30%;
 	text-align:center;
@@ -154,7 +158,7 @@ input[type="button"] {
  }
 
 .logout {
-  background: rgba(231,76,60,0.7); /* opacity cant be used as child(text) is inherited as well */
+  background: rgba(226,54,54,1); /* opacity cant be used as child(text) is inherited as well */
   border: none;
   color: white;
   padding: 15px 32px; /* verti hori */
@@ -168,7 +172,7 @@ input[type="button"] {
 }
 
 .logout:hover {
-  background: rgba(155,0,0,0.4);
+  background: rgba(155,0,0,0.9);
 }
 
 .botRight {

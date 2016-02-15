@@ -36,11 +36,6 @@
         }
         return confirm("Adding subject(s):" + totalSubjects); //display confirmation msg - "ticked - subject name"
       }
-
-      //function is called when Back button is pressed
-      function goBck() {
-        window.location = "./index.php";
-      }
     </script>
   </head>
 
@@ -88,14 +83,14 @@
             //Each time checkbox is clicked, function atleastOne($_SESSION[totalSubj]) is called
             //$_SESSION[totalSubj] --> index.php, (after displaying all the registered subject)
           }
-          
+
           $sth->close();
         ?>
       </table>
 
         <input type="submit" name="addSubj" value="Confirm" onClick="return confirmation();" disabled></td>
         <!--  disabled means default is disabled (cannot be clicked) --->
-        <input type="button" value="Back" onClick="goBck()">
+        <input type="button" value="Back" onClick="window.location ='./index.php'">
     </form>
   </body>
 

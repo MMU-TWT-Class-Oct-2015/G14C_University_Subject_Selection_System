@@ -17,9 +17,12 @@
       <h2 >Student Registration</h2>
 
         <div class="register_content">
-          <form method="post"  action="./register_process.php" >
+          <form method="POST"  action="./register_process.php" >
             <!-- pattern: exactly 10 alphanumeric -->
-            <p>User ID              <input type="text" name="userid" required pattern="[A-Za-z0-9]{10}" title="10 characters excluding symbols &amp spaces"/> </p>
+            <p>User ID              <input type="text" name="userid" required pattern="[A-Za-z0-9]{10}" title="10 characters excluding symbols &amp spaces"/></p>
+            <?php
+              if (isset($_GET['userexists'])) echo "<p class='warning'>User already exists</p>";
+            ?>
             <!-- pattern: any characters(byte) from 6-20 -->
             <p>New Password        <input type="password" name="passw1"  required pattern=".{6,20}" title="Password must be 6 to 20 characters long" onchange="
               if (this.checkValidity())
@@ -34,12 +37,11 @@
                                      <option value="3">Delta Year</option>
                                    </select></p>
 
-            <input type='submit' name="Submit" value="Register" style="float: left";  >
+            <input type="submit" name="Submit" value="Register" style="float: left";  >
           </form>
 
         <form action="./login.php">
           <input type="submit" value="Back"  >
-          <input type="submit" value="Back" class="botRight">
         </form>
       </div>
     </div>

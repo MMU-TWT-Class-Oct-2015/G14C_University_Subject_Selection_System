@@ -28,25 +28,32 @@
       /***** hashed password *****/
       $password = hash('sha512', $passw1);
 
-      /****** Insert Data *******/
+      if (!($database = mysql_connect("localhost", "root")))
+        die(mysql_error() . "<br><p>Could not connect to database</p>
+                             <input type='button' value='Back' onclick=window.location='./register.php'></body></html>");
+
+      if (!mysql_select_db("twt", $database))
+        die(mysql_error() . "<br><p>Could not open database</p>
+                             <input type='button' value='Back' onclick=window.location='./register.php'></body></html>");
+
+      $query="SELECT ID FROM student WHERE ID ='" . $userid . "';";
+
+      // check if user exists
+      $result = mysql_query($query, $database);
+      if (mysql_num_rows($result))
+        header("Location: ./register.php?userexists=1");
+
       $query ="INSERT INTO student( `ID`,`Name`,`Year`,`Password`) VALUES ('".$userid."', '".$username."','".$year."','".$password."' )";
 
-       if (!($database = mysql_connect("localhost", "root")))
-         die(mysql_error() . "<br>Could not connect to database</body></html>");
-
-       if (!mysql_select_db("twt", $database))
-         die(mysql_error() . "<br>Could not open database</body></html>");
-
-       if (!($result = mysql_query($query, $database))) {
-         print("<p>User ID not found!</p>");
-         die("</body></html>");
+      if (!($result = mysql_query($query, $database))) {
+        die(mysql_error() . "<br><p>Error registering user</p>
+                             <input type='button' value='Back' onclick=window.location='./register.php'></body></html>");
        }
 
        mysql_close($database);
-       print("<p> Register successful </p>");
-       print("<script language='javascript' type='text/javascript'>");
-       print("successful()");
-       print("</script>");
+       echo "<script language='javascript' type='text/javascript'>
+               successful();
+             </script>";
      ?>
   </body>
 </html>
