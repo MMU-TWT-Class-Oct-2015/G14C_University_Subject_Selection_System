@@ -104,9 +104,9 @@
   width: 30%;
   background: #f6ad8d;
   margin: auto;
-  border-radius: 10px #3a6070;
-
+  border-radius: 10px 10px 0px 0px;
 }
+
 .register h2{
   font-size: 27px;
   font-weight: 300;
@@ -117,7 +117,6 @@
   border-radius: 10px 10px 0px 0px;
   border-bottom: 3px dashed black;
 }
-
 
 .register_content{
   width:30%;
@@ -130,20 +129,20 @@ a {
   text-decoration: none;
 }
 
- input[type="submit"] {
-   margin-top: 5pt;
-   margin-left: 13%;
-   margin-bottom: 30pt;
-   font-size: 11pt;
+input[type="submit"] {
+  margin-top: 5pt;
+  margin-left: 13%;
+  margin-bottom: 30pt;
+  font-size: 11pt;
 
   font-family: 'Open Sans', sans-serif;
 }
 
 input[type="button"] {
- margin-top: 5pt;
- margin-left: 13%;
- font-size: 11pt;;
- font-family: 'Open Sans', sans-serif;
+  margin-top: 5pt;
+  margin-left: 13%;
+  font-size: 11pt;;
+  font-family: 'Open Sans', sans-serif;
 }
 
 input[type="button"]:hover, input[type="submit"]:hover{
